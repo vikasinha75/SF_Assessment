@@ -1,0 +1,126 @@
+# macOS
+.DS_Store
+
+# Xcode
+build/
+DerivedData/
+.swiftpm/
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Checkouts
+Carthage/Build
+
+# IntelliJ IDEA
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Compiled Python files
+__pycache__/
+*.pyc
+
+# Compiled Java classes
+*.class
+
+# Compiled Ruby files
+*.rbc
+
+# Node.js
+node_modules/
+package-lock.json
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# pipenv
+.Python
+lib/
+lib64/
+include/
+bin/
+
+# celery beat schedule file
+celerybeat-schedule
+.env
+
+# virtualenv
+venv/
+ENV/
+env/
+venv*/
+.venv/
+# virtualenvwrapper
+.vpython/
+
