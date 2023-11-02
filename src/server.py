@@ -39,6 +39,7 @@ class MyServerProtocol(WebSocketServerProtocol):
     def onConnect(self, request):
         print("Client connecting: {0}".format(request.peer))
         # TODO Return a protocol here that matches the sender
+        self.websocket_protocols = ["wamp.2.json"]
         return ""
 
     async def onOpen(self):
@@ -65,7 +66,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
     server_url = f"ws://127.0.0.1:{args.port}"
     print(f"Starting server on {server_url}")
-    factory = WebSocketServerFactory(server_url)
+    # factory = WebSocketServerFactory(server_url)
+    factory = WebSocketServerFactory(server_url, protocols=["wamp.2.json"])
     factory.protocol = MyServerProtocol
 
     loop = asyncio.get_event_loop()

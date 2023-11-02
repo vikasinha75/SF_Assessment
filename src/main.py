@@ -12,9 +12,13 @@ import os
 import sys
 import threading
 import logging
-import sensor_test as sensor
-import read_ecoadapt_test as sensor_read
-import data_process_ecoadapt_test as data_process
+import asyncio
+
+# import dev.modbus_server_synch as sensor
+import sensor_operation.read_ecoadapt_test as sensor_read
+import process_sensor_data as data_process
+from simulated_sensor import SimulatedSensor
+from process_sensor_data import ModbusDataReader
 
 # configure the client logging
 FORMAT = (
@@ -36,21 +40,28 @@ def main_function():
     Returns:
         str: A message indicating the result of the operation.
     """
+
+    # Fetch the data from simulated sensor
+    reader = ModbusDataReader()
+    rms_voltage_values = reader.read_rms_voltage(reader.RMS_VOLTAGE_REG_START_ADD)
+    rms_freq_values = reader.read_rms_freq(reader.RMS_FREQ_REG_START_ADD)
+
+
     #----- Turn on the Modbus simulated server - basically sensor
-    log.info("Starting Simulated Modbus Server")
-    # Create a thread for running the Modbus server
-    sensor_thread = threading.Thread(target=sensor.create_simulated_modbus_server)
-    sensor_thread.daemon = True  # This allows the thread to exit when the main program ends
-    # Start the server thread
-    sensor_thread.start()
-    # Wait for the server to signal that it's ready
-    sensor.modbus_server_ready_event.wait()
+    # log.info("Starting Simulated Modbus Server")
+    # # Create a thread for running the Modbus server
+    # sensor_thread = threading.Thread(target=sensor.create_simulated_modbus_server)
+    # sensor_thread.daemon = True  # This allows the thread to exit when the main program ends
+    # # Start the server thread
+    # sensor_thread.start()
+    # # Wait for the server to signal that it's ready
+    # sensor.modbus_server_ready_event.wait()
 
-    # Perform other tasks in your application
-    print("Your application is running...")
+    # # Perform other tasks in your application
+    # print("Your application is running...")
 
-    #read the data from the sensor
-    sensor_read.run_sync_client()
+    # #read the data from the sensor
+    # sensor_read.run_sync_client()
 
     #process the data
     #store the data

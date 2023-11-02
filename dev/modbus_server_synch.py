@@ -11,11 +11,6 @@ License: NA
 Use this code at your own risk. There is no warranty, implied or otherwise.
 """
 
-# from pymodbus.server.asynchronous import StartTcpServer
-# from pymodbus.datastore import ModbusSequentialDataBlock
-# from pymodbus.datastore import ModbusServerContext
-# from twisted.internet import reactor
-
 from pymodbus.server.asynchronous import StartTcpServer
 from pymodbus.datastore import ModbusSequentialDataBlock
 from pymodbus.datastore import ModbusSlaveContext
